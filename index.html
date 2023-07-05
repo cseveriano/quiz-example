@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Questionário</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .options label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .options input {
+      margin-right: 10px;
+    }
+
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+
+    .submit-btn {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .result-message {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Questionário</h1>
+
+    <div class="question">
+      <p>Qual é a capital do Brasil?</p>
+      <div class="options">
+        <label>
+          <input type="radio" name="resposta1" value="a">
+          Belo Horizonte
+        </label>
+        <label>
+          <input type="radio" name="resposta1" value="b">
+          Rio de Janeiro
+        </label>
+        <label>
+          <input type="radio" name="resposta1" value="c">
+          São Paulo
+        </label>
+        <label >
+          <input type="radio" name="resposta1" value="d">
+          Brasília
+        </label>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>Qual é a moeda oficial do Japão?</p>
+      <div class="options">
+        <label >
+          <input type="radio" name="resposta2" value="a">
+          Yen
+        </label>
+        <label>
+          <input type="radio" name="resposta2" value="b">
+          Dólar
+        </label>
+        <label>
+          <input type="radio" name="resposta2" value="c">
+          Euro
+        </label>
+        <label >
+          <input type="radio" name="resposta2" value="d">
+          Real
+        </label>
+      </div>
+    </div>
+
+    <div class="submit-btn">
+      <button type="submit" onclick="checkAnswers()">Enviar</button>
+    </div>
+
+    <div class="result-message" id="resultMessage" style="display: none;"></div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      var answer1 = document.querySelector('input[name="resposta1"]:checked');
+      var answer2 = document.querySelector('input[name="resposta2"]:checked');
+      var resultMessage = document.getElementById('resultMessage');
+
+      if (answer1.value == "d" && answer2.value == "a") {
+        resultMessage.style.display = "block";
+        resultMessage.textContent = "Você acertou todas as questões!";
+        resultMessage.style.color = "green";
+      } else {
+        resultMessage.style.display = "block";
+        resultMessage.textContent = "Você errou pelo menos uma questão.";
+        resultMessage.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
